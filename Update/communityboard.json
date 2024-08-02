@@ -1,0 +1,80 @@
+{
+  "FeaturedPlayer": {
+    "Id": 1,
+    "TitleOverride": "Zenex",
+    "UrlOverride": "https://www.youtube.com/watch?v=zd_Fu4mW2po"
+  },
+  "FeaturedRoomGroup": {
+    "FeaturedRoomGroupId": 1,
+    "Name": "rooms Highlights",
+    "StartAt": "2023-05-02T07:00:00Z",
+    "EndAt": "9999-05-09T07:00:00Z",
+    "FeaturedRooms": [
+      {
+        "RoomName": "dormroom",
+        "RoomId": 1,
+        "ImageName": "dorm_room.png"
+      },
+      {
+        "RoomName": "hell",
+        "RoomId": 20,
+        "ImageName": "bowling.png"
+      },
+      {
+        "RoomName": "real helll",
+        "RoomId": 21,
+        "ImageName": "crescendo.png"
+      }
+    ]
+    "Rooms": [
+      {
+        "RoomName": "dormroom",
+        "RoomId": 1,
+        "ImageName": "dorm_room.png"
+      },
+      {
+        "RoomName": "hell",
+        "RoomId": 20,
+        "ImageName": "bowling.png"
+      },
+      {
+        "RoomName": "real helll",
+        "RoomId": 21,
+        "ImageName": "crescendo.png"
+      }
+    ]
+  },
+  "CurrentAnnouncement": {
+    "Message": "",
+    "MoreInfoUrl": ""
+  },
+  "InstagramImages": [
+    {
+      "ImageName": "Community/Instagram/Welcome.png",
+      "ImageUrl": "https://www.instagram.com/p/Ckb55YeMEFX/"
+    }    
+  ],
+  "Videos": [
+    {
+      "BlobName": "Help",
+      "Title": "AHHHHHHH",
+      "Description": "AM PRO",
+      "ThumbnailBlobName": "IDK.png",
+      "SourceUrl": "https://www.youtube.com/watch?v=zd_Fu4mW2po"
+    },
+    {
+      "BlobName": "u.webm",
+      "Title": "November 15th",
+      "Description": "",
+      "ThumbnailBlobName": "IDK.png",
+      "SourceUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      "BlobName": "deez.mp4",
+      "Title": "When the imposter is sus",
+      "Description": "",
+      "ThumbnailBlobName": "Community/Videos/deez.png",
+      "SourceUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ]
+}
