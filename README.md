@@ -1,6 +1,6 @@
-# Welcome to Rec_rewild!
+# Welcome to OriRoom!
 ---
-Rec_rewild is a forked of OpenRec!
+OriRoom is a fork of OpenRec and Rec_rewild.
 
 ### Branches
  - Master
