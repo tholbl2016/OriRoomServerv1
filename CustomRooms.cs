@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
@@ -12,17 +12,42 @@ namespace api
 {
     class CustomRooms
     {
+        private static readonly string savePath = "SaveData\\Rooms\\Downloaded";
+
+        private static void EnsureSaveDirectory()
+        {
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+        }
+
+        private static void WriteSafe(string fileName, string content)
+        {
+            try
+            {
+                File.WriteAllText(Path.Combine(savePath, fileName), content);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing to {fileName}: {ex.Message}");
+            }
+        }
+
         public static void RoomDecode(string text)
         {
+            EnsureSaveDirectory();
             ModernRooms.Root root2 = JsonConvert.DeserializeObject<ModernRooms.Root>(text);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomname.txt", root2.Name);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomid.txt", Convert.ToString(root2.RoomId));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\datablob.txt", root2.SubRooms[0].DataBlob);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomsceneid.txt", root2.SubRooms[0].UnitySceneId);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\imagename.txt", root2.ImageName);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\cheercount.txt", Convert.ToString(root2.Stats.CheerCount));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\favcount.txt", Convert.ToString(root2.Stats.FavoriteCount));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\visitcount.txt", Convert.ToString(root2.Stats.VisitCount));
+
+            WriteSafe("roomname.txt", root2.Name);
+            WriteSafe("roomid.txt", root2.RoomId.ToString());
+            WriteSafe("datablob.txt", root2.SubRooms[0].DataBlob);
+            WriteSafe("roomsceneid.txt", root2.SubRooms[0].UnitySceneId);
+            WriteSafe("imagename.txt", root2.ImageName);
+            WriteSafe("cheercount.txt", root2.Stats.CheerCount.ToString());
+            WriteSafe("favcount.txt", root2.Stats.FavoriteCount.ToString());
+            WriteSafe("visitcount.txt", root2.Stats.VisitCount.ToString());
+
             room = new Room
             {
                 RoomId = 29,
@@ -40,8 +65,8 @@ namespace api
                 SupportsTeleportVR = true,
                 ReplicationId = null,
                 ReleaseStatus = 0
-
             };
+
             scene = new List<Scene>
             {
                 new Scene()
@@ -51,7 +76,7 @@ namespace api
                     RoomSceneLocationId = root2.SubRooms[0].UnitySceneId,
                     Name = "Home",
                     IsSandbox = true,
-                    DataBlobName =  root2.SubRooms[0].DataBlob,
+                    DataBlobName = root2.SubRooms[0].DataBlob,
                     MaxPlayers = 20,
                     CanMatchmakeInto = true,
                     DataModifiedAt = root2.SubRooms[0].DataSavedAt,
@@ -63,6 +88,7 @@ namespace api
                     SupportsJoinInProgress = true
                 }
             };
+
             root = new Root
             {
                 Room = room,
@@ -76,21 +102,19 @@ namespace api
                 VisitCount = root2.Stats.VisitCount,
                 Tags = new List<aTag>
                 {
-                    new aTag()
-                    {
-                        Tag = "rro",
-                        Type = 2
-                    }
+                    new aTag() { Tag = "rro", Type = 2 }
                 }
-
             };
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\RoomDetails.json", JsonConvert.SerializeObject(root));
+
+            WriteSafe("RoomDetails.json", JsonConvert.SerializeObject(root));
         }
 
         public static void RoomGet(string roomnames)
         {
-            string webdata = new WebClient().DownloadString("https://rooms.rec.net/rooms?name=" + roomnames + "&include=297");
+            EnsureSaveDirectory();
+            string webdata = new WebClient().DownloadString($"https://rooms.rec.net/rooms?name={roomnames}&include=297");
             ModernRooms.Root root2 = JsonConvert.DeserializeObject<ModernRooms.Root>(webdata);
+
             room = new Room
             {
                 RoomId = 29,
@@ -108,8 +132,8 @@ namespace api
                 SupportsTeleportVR = true,
                 ReplicationId = null,
                 ReleaseStatus = 0
-
             };
+
             scene = new List<Scene>
             {
                 new Scene()
@@ -119,7 +143,7 @@ namespace api
                     RoomSceneLocationId = root2.SubRooms[0].UnitySceneId,
                     Name = "Home",
                     IsSandbox = true,
-                    DataBlobName =  root2.SubRooms[0].DataBlob,
+                    DataBlobName = root2.SubRooms[0].DataBlob,
                     MaxPlayers = 20,
                     CanMatchmakeInto = true,
                     DataModifiedAt = root2.SubRooms[0].DataSavedAt,
@@ -131,6 +155,7 @@ namespace api
                     SupportsJoinInProgress = true
                 }
             };
+
             root = new Root
             {
                 Room = room,
@@ -144,31 +169,25 @@ namespace api
                 VisitCount = root2.Stats.VisitCount,
                 Tags = new List<aTag>
                 {
-                    new aTag()
-                    {
-                        Tag = "rro",
-                        Type = 2
-                    }
+                    new aTag() { Tag = "rro", Type = 2 }
                 }
-
             };
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomname.txt", root2.Name);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomid.txt", Convert.ToString(root2.RoomId));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\datablob.txt", root2.SubRooms[0].DataBlob);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\roomsceneid.txt", root2.SubRooms[0].UnitySceneId);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\imagename.txt", root2.ImageName);
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\cheercount.txt", Convert.ToString(root2.Stats.CheerCount));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\favcount.txt", Convert.ToString(root2.Stats.FavoriteCount));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\visitcount.txt", Convert.ToString(root2.Stats.VisitCount));
-            File.WriteAllText("SaveData\\Rooms\\Downloaded\\RoomDetails.json", JsonConvert.SerializeObject(root));
+
+            WriteSafe("roomname.txt", root2.Name);
+            WriteSafe("roomid.txt", root2.RoomId.ToString());
+            WriteSafe("datablob.txt", root2.SubRooms[0].DataBlob);
+            WriteSafe("roomsceneid.txt", root2.SubRooms[0].UnitySceneId);
+            WriteSafe("imagename.txt", root2.ImageName);
+            WriteSafe("cheercount.txt", root2.Stats.CheerCount.ToString());
+            WriteSafe("favcount.txt", root2.Stats.FavoriteCount.ToString());
+            WriteSafe("visitcount.txt", root2.Stats.VisitCount.ToString());
+            WriteSafe("RoomDetails.json", JsonConvert.SerializeObject(root));
         }
-            
-            
-        
+
         public static Room room { get; set; }
         public static List<Scene> scene { get; set; }
         public static Root root { get; set; }
-        //2018 rooms
+
         public class Room
         {
             public ulong RoomId { get; set; }
@@ -187,7 +206,7 @@ namespace api
             public object ReplicationId { get; set; }
             public int ReleaseStatus { get; set; }
         }
-        
+
         public class Scene
         {
             public int RoomSceneId { get; set; }
@@ -200,26 +219,18 @@ namespace api
             public bool CanMatchmakeInto { get; set; }
             public DateTime DataModifiedAt { get; set; }
             public object ReplicationId { get; set; }
-            public bool UseLevelBasedMatchmaking { get; set; }
-            public bool UseAgeBasedMatchmaking { get; set; }
-            public bool UseRecRoyaleMatchmaking { get; set; }
-            public int ReleaseStatus { get; set; }
             public bool SupportsJoinInProgress { get; set; }
         }
-        
+
         public class Root
         {
             public Room Room { get; set; }
             public List<Scene> Scenes { get; set; }
-            public List<ulong> CoOwners { get; set; }
-            public List<ulong> InvitedCoOwners { get; set; }
-            public List<ulong> Hosts { get; set; }
-            public List<ulong> InvitedHosts { get; set; }
             public int CheerCount { get; set; }
             public int FavoriteCount { get; set; }
             public int VisitCount { get; set; }
-            public List<aTag> Tags { get; set; }
         }
+
         public class aTag
         {
             public string Tag { get; set; }

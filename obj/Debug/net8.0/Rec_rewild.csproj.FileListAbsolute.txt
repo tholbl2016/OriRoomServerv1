@@ -1,0 +1,5 @@
+C:\Users\David\Downloads\Rewild_Fix-master\Rewild_Fix-master\obj\Debug\net8.0\Rec_rewild.csproj.AssemblyReference.cache
+C:\Users\David\Downloads\Rewild_Fix-master\Rewild_Fix-master\obj\Debug\net8.0\Rec_rewild.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Downloads\Rewild_Fix-master\Rewild_Fix-master\obj\Debug\net8.0\Rec_rewild.AssemblyInfoInputs.cache
+C:\Users\David\Downloads\Rewild_Fix-master\Rewild_Fix-master\obj\Debug\net8.0\Rec_rewild.AssemblyInfo.cs
+C:\Users\David\Downloads\Rewild_Fix-master\Rewild_Fix-master\obj\Debug\net8.0\Rec_rewild.csproj.CoreCompileInputs.cache

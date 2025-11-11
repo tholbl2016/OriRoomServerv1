@@ -1,8 +1,8 @@
 {
   "FeaturedPlayer": {
     "Id": 1,
-    "TitleOverride": "Zenex",
-    "UrlOverride": "https://www.youtube.com/watch?v=zd_Fu4mW2po"
+    "TitleOverride": "EGGRECROOM SUCKS",
+    "UrlOverride": "https://example.com"
   },
   "FeaturedRoomGroup": {
     "FeaturedRoomGroupId": 1,
@@ -11,7 +11,7 @@
     "EndAt": "9999-05-09T07:00:00Z",
     "FeaturedRooms": [
       {
-        "RoomName": "dormroom",
+        "RoomName": "egg sucks",
         "RoomId": 1,
         "ImageName": "dorm_room.png"
       },
@@ -25,7 +25,7 @@
         "RoomId": 21,
         "ImageName": "crescendo.png"
       }
-    ]
+    ],
     "Rooms": [
       {
         "RoomName": "dormroom",
@@ -45,33 +45,61 @@
     ]
   },
   "CurrentAnnouncement": {
-    "Message": "",
-    "MoreInfoUrl": ""
+    "Message": "fuck you",
+    "MoreInfoUrl": "https://"
   },
   "InstagramImages": [
     {
-      "ImageName": "Community/Instagram/Welcome.png",
-      "ImageUrl": "https://www.instagram.com/p/Ckb55YeMEFX/"
-    }    
+      "ImageName": "egg.jpg",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "egg.png",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "egg.jpg",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "egg.png",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "egg.png",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "egg.png",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "banproof.png",
+      "ImageUrl": "https://www.discord.cim"
+    },
+    {
+      "ImageName": "heslashhimissues.png",
+      "ImageUrl": "https://www.discord.cim"
+    }
   ],
   "Videos": [
     {
-      "BlobName": "Help",
-      "Title": "AHHHHHHH",
-      "Description": "AM PRO",
-      "ThumbnailBlobName": "IDK.png",
+      "BlobName": "bottomgear.webm",
+      "Title": "bottom gear",
+      "Description": "egg sucks",
+      "ThumbnailBlobName": "bottom.png",
       "SourceUrl": "https://www.youtube.com/watch?v=zd_Fu4mW2po"
     },
     {
       "BlobName": "u.webm",
-      "Title": "November 15th",
+      "Title": "egg sucks",
       "Description": "",
       "ThumbnailBlobName": "IDK.png",
       "SourceUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
       "BlobName": "deez.mp4",
-      "Title": "When the imposter is sus",
+      "Title": "A normal video",
       "Description": "",
       "ThumbnailBlobName": "Community/Videos/deez.png",
       "SourceUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
